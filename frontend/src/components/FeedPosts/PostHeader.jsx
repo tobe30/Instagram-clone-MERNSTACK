@@ -14,6 +14,7 @@ const PostHeader = ({post}) => {
   }
   const { data: authUser } = useAuthUser();
   const postOwner = post.user;
+  const isOwnPost = authUser?._id === postOwner._id;
   const [isFollowing, setIsFollowing] = useState(
     postOwner.followers?.includes(authUser._id) // you may adjust this logic
   );
@@ -39,23 +40,25 @@ const PostHeader = ({post}) => {
           </Box>
         </Flex>
       </Flex>
-      <Box
-  fontSize={12}
-  color="blue.500"
-  fontWeight="bold"
-  _hover={{ color: "white" }}
-  transition="0.2s ease-in-out"
-  onClick={handleFollowToggle}
-  cursor="pointer"
->
-  {isPending ? (
-    <Spinner size="xs" />
-  ) : isFollowing ? (
-    "Unfollow"
-  ) : (
-    "Follow"
-  )}
-</Box>
+      {!isOwnPost && (
+        <Box
+          fontSize={12}
+          color="blue.500"
+          fontWeight="bold"
+          _hover={{ color: "white" }}
+          transition="0.2s ease-in-out"
+          onClick={handleFollowToggle}
+          cursor="pointer"
+        >
+          {isPending ? (
+            <Spinner size="xs" />
+          ) : isFollowing ? (
+            "Unfollow"
+          ) : (
+            "Follow"
+          )}
+        </Box>
+      )}
 
     </Flex>
   )

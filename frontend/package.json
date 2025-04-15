@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.14.0",
     "@tanstack/react-query": "^5.72.0",
     "framer-motion": "^12.5.0",
+    "instagram-clone": "file:..",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",

@@ -9,6 +9,7 @@ const SuggestedUser = ({userId, followers, name, profileImg, onFollow, isLoading
         setIsFollowed((prev) => !prev);
         onFollow(userId); // trigger mutation
       };
+      console.log("isFollowed", followers)
 
   return <Flex justifyContent={"space-between"} align={"center"} w={"full"}>
 
