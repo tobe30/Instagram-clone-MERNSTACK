@@ -8,7 +8,6 @@ router.get("/me", protectRoute, getMe);
 router.post("/signup", signUp);
 router.post("/login", login);
 router.post("/logout", logout);
-console.log("Registered route: ", router);
 
 
 
