@@ -92,6 +92,19 @@ const AuthForm = () => {
             value={inputs.email}
             onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
           />
+
+          {!isLogin ? (
+            <Input
+              placeholder="username"
+              fontSize={14}
+              type="text"
+              value={inputs.username}
+              onChange={(e) =>
+                setInputs({ ...inputs, username: e.target.value })
+              }
+            />
+          ) : null}
+
           <Input
             placeholder="Password"
             fontSize={14}
@@ -99,18 +112,6 @@ const AuthForm = () => {
             value={inputs.password}
             onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
           />
-
-          {!isLogin ? (
-            <Input
-              placeholder="username"
-              fontSize={14}
-              type="password"
-              value={inputs.username}
-              onChange={(e) =>
-                setInputs({ ...inputs, username: e.target.value })
-              }
-            />
-          ) : null}
 
           {!isLogin ? (
             <Input
