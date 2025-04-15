@@ -69,9 +69,10 @@ const AuthForm = () => {
   const handleAuth = () => {
     const { email, password, username, confirmPassword } = inputs;
 
-    if (!email || !password || !username || (!isLogin && !confirmPassword)) {
+    if (!email || !password || (!isLogin && (!username || !confirmPassword))) {
       return toast.error("Please fill all the fields");
     }
+    
 
     if (!isLogin && password !== confirmPassword) {
       return toast.error("Passwords do not match");

@@ -3,16 +3,19 @@ import useAuthUser from "../../hooks/useAuthUser";
 import { timeAgo } from "../../hooks/timeAgo";
 
 
-const Comment = ({comment,profilePic}) => {
+const Comment = ({comment}) => {
       const { data: authUser } = useAuthUser();
-    
+      console.log(comment); // Check the structure of the comment object
+
+
   return <Flex gap={4}>
-            <Avatar src={profilePic} name={authUser.username} size={"sm"} />
+            <Avatar  src={comment.user.profileImg ||  "/avatar-placeholder.png"} name={comment.user?.username} />
+
 
             <Flex direction={"column"}>
                 <Flex gap={2} >
                         <Text fontWeight={"bold"} fontSize={12}>
-                            {authUser.username}
+                        {comment.user.username}
                         </Text>
                         <Text fontSize={14}>
                             {comment.text}
@@ -20,7 +23,7 @@ const Comment = ({comment,profilePic}) => {
                 </Flex>
 
                 <Text fontSize={12} color={"gray"}>
-                {timeAgo(comment.createdAt)}
+                {/* {timeAgo(comment.createdAt)} */}
                 </Text>
             </Flex>
   </Flex>
